@@ -1,2 +1,0 @@
-# airbnb-welcome-guide
-Final
