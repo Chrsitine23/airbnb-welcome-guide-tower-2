@@ -71,9 +71,9 @@
 
         <div class="icon-grid">
             <!-- Row 1 -->
-            <button class="icon-card" onclick="showPage('welcome')">
-                <div class="icon-circle"><i data-lucide="home"></i></div>
-                <span>Welcome</span>
+            <button class="icon-card" onclick="showPage('tutorials')">
+                <div class="icon-circle"><i data-lucide="play"></i></div>
+                <span>Tutorial</span>
             </button>
             <button class="icon-card" onclick="showPage('checkin')">
                 <div class="icon-circle"><i data-lucide="key-round"></i></div>
@@ -149,48 +149,347 @@
 
     <!-- ==================== CONTENT PAGES ==================== -->
 
-    <!-- WELCOME -->
-    <section id="welcome" class="page content-page">
+    <!-- TUTORIAL -->
+    <section id="tutorials" class="page content-page">
         <div class="content-header">
             <button class="back-btn" onclick="showPage('menu')">
                 <i data-lucide="arrow-left"></i>
             </button>
-            <h2>Welcome</h2>
+            <h2>Tutorials</h2>
         </div>
 
         <div class="content-body">
 
             <div class="content-card">
-                <h3>Welcome to Rest N Play 👋</h3>
+
+                <h3>How to Use Your Unit</h3>
 
                 <p>
-                    Welcome to your home away from home in the heart of Cebu IT Park.
+                    Quick step-by-step tutorials to help you use the appliances
+                    and facilities in your unit.
                 </p>
 
-                <p>
-                    Whether you're here for a quick getaway, a family trip, work,
-                    or a night out with friends, this guide has everything you need
-                    for a smooth and comfortable stay.
-                </p>
 
-                <h3>Explore the Guide</h3>
+                <!-- TV -->
+                <div class="info-block">
+                    <h4>
+                        <i data-lucide="tv" class="icon-sm"></i>
+                        How to Turn On TV
+                    </h4>
 
-                <p>
-                    Find helpful information about transportation, nearby restaurants,
-                    bars and clubs, shopping, activities, emergency information,
-                    and everything you may need during your stay.
-                </p>
+                    <p>
+                        Learn how to turn on and use the TV.
+                    </p>
 
-                <p>
-                    Make yourself comfortable, enjoy Cebu, and have a wonderful stay
-                    at Rest N Play. ❤️
-                </p>
+                    <button
+                            class="btn-secondary"
+                            onclick="showPage('tutorial-tv')"
+                    >
+                        <i data-lucide="play-circle" class="icon-sm"></i>
+                        Watch Tutorial
+                    </button>
+                </div>
 
-                <p class="signature">
-                    — Rest N Play
-                </p>
+
+                <!-- AIRCON -->
+                <div class="info-block">
+                    <h4>
+                        <i data-lucide="snowflake" class="icon-sm"></i>
+                        How to Turn On Aircon
+                    </h4>
+
+                    <p>
+                        Learn how to turn on and adjust the air conditioning.
+                    </p>
+
+                    <button
+                            class="btn-secondary"
+                            onclick="showPage('tutorial-aircon')"
+                    >
+                        <i data-lucide="play-circle" class="icon-sm"></i>
+                        Watch Tutorial
+                    </button>
+                </div>
+
+
+                <!-- GENERATOR -->
+                <div class="info-block">
+                    <h4>
+                        <i data-lucide="zap" class="icon-sm"></i>
+                        How to Turn On Generator
+                    </h4>
+
+                    <p>
+                        Follow the steps to safely turn on the generator.
+                    </p>
+
+                    <button
+                            class="btn-secondary"
+                            onclick="showPage('tutorial-generator')"
+                    >
+                        <i data-lucide="play-circle" class="icon-sm"></i>
+                        Watch Tutorial
+                    </button>
+                </div>
+
+
+                <!-- SHOWER -->
+                <div class="info-block">
+                    <h4>
+                        <i data-lucide="shower-head" class="icon-sm"></i>
+                        How to Turn On Shower
+                    </h4>
+
+                    <p>
+                        Learn how to properly use the hot and cold shower.
+                    </p>
+
+                    <button
+                            class="btn-secondary"
+                            onclick="showPage('tutorial-shower')"
+                    >
+                        <i data-lucide="play-circle" class="icon-sm"></i>
+                        Watch Tutorial
+                    </button>
+                </div>
+
+
+                <!-- RANGE HOOD -->
+                <div class="info-block">
+                    <h4>
+                        <i data-lucide="wind" class="icon-sm"></i>
+                        How to Turn On Range Hood
+                    </h4>
+
+                    <p>
+                        Learn how to turn on and use the kitchen range hood.
+                    </p>
+
+                    <button
+                            class="btn-secondary"
+                            onclick="showPage('tutorial-range-hood')"
+                    >
+                        <i data-lucide="play-circle" class="icon-sm"></i>
+                        Watch Tutorial
+                    </button>
+                </div>
+
             </div>
+
         </div>
+    </section>
+
+    <!-- TUTORIAL TV -->
+    <section id="tutorial-tv" class="page content-page">
+
+        <div class="content-header">
+            <button class="back-btn" onclick="showPage('tutorials')">
+                <i data-lucide="arrow-left"></i>
+            </button>
+
+            <h2>TV Tutorial</h2>
+        </div>
+
+        <div class="content-body">
+
+            <div class="content-card">
+
+                <h3>How to Turn On TV</h3>
+
+                <video
+                        class="tutorial-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                >
+                    <source
+                            src="videos/T2%20Tv.mp4"
+                            type="video/mp4"
+                    >
+
+                    Your browser does not support video playback.
+                </video>
+
+                <div class="info-block">
+                    <h4>Instructions</h4>
+
+                    <ol>
+                        <li>Press the Power button on the remote.</li>
+                        <li>Wait for the TV to turn on.</li>
+                    </ol>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TUTORIAL AIRCON -->
+    <section id="tutorial-aircon" class="page content-page">
+
+        <div class="content-header">
+            <button class="back-btn" onclick="showPage('tutorials')">
+                <i data-lucide="arrow-left"></i>
+            </button>
+
+            <h2>Aircon Tutorial</h2>
+        </div>
+
+        <div class="content-body">
+
+            <div class="content-card">
+
+                <h3>How to Turn On Aircon</h3>
+
+                <video
+                        class="tutorial-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                >
+                    <source
+                            src="videos/T2%20Aircon.mp4"
+                            type="video/mp4"
+                    >
+
+                    Your browser does not support video playback.
+                </video>
+
+                <div class="info-block">
+                    <h4>Instructions</h4>
+
+                    <ol>
+                        <li>Find the Aircon Remote located at the table below the TV.</li>
+                        <li>Press the On button</li>
+                    </ol>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TUTORIAL GENERATOR -->
+    <section id="tutorial-generator" class="page content-page">
+
+        <div class="content-header">
+            <button class="back-btn" onclick="showPage('tutorials')">
+                <i data-lucide="arrow-left"></i>
+            </button>
+
+            <h2>Generator Tutorial</h2>
+        </div>
+
+        <div class="content-body">
+
+            <div class="content-card">
+
+                <h3>How to Turn On Generator</h3>
+
+                <video
+                        class="tutorial-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                >
+                    <source
+                            src="videos/T2%20generator.mp4"
+                            type="video/mp4"
+                    >
+
+                    Your browser does not support video playback.
+                </video>
+
+                <div class="info-block">
+                    <h4>Instructions</h4>
+
+                    <ol>
+                        <li>Flip the Blue Switch Down, Black Switch Up for the generator to start</li>
+                        <li>If the generator does not start, message the host</li>
+                        <li>Once the Power is back, please remember to Turn off the Generator and Flip the Main Breaker Up</li>
+                    </ol>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TUTORIAL SHOWER -->
+    <section id="tutorial-shower" class="page content-page">
+
+        <div class="content-header">
+            <button class="back-btn" onclick="showPage('tutorials')">
+                <i data-lucide="arrow-left"></i>
+            </button>
+
+            <h2>Shower Tutorial</h2>
+        </div>
+
+        <div class="content-body">
+
+            <div class="content-card">
+
+                <h3>How to Turn On Shower</h3>
+
+                <video
+                        class="tutorial-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                >
+                    <source
+                            src="videos/T2%20Shower.mp4"
+                            type="video/mp4"
+                    >
+
+                    Your browser does not support video playback.
+                </video>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TUTORIAL RANGEHOOD -->
+    <section id="tutorial-range-hood" class="page content-page">
+
+        <div class="content-header">
+            <button class="back-btn" onclick="showPage('tutorials')">
+                <i data-lucide="arrow-left"></i>
+            </button>
+
+            <h2>Range Hood Tutorial</h2>
+        </div>
+
+        <div class="content-body">
+
+            <div class="content-card">
+
+                <h3>How to Turn On Range Hood</h3>
+
+                <video
+                        class="tutorial-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                >
+                    <source
+                            src="videos/T2%20Rangehood.mp4"
+                            type="video/mp4"
+                    >
+
+                    Your browser does not support video playback.
+                </video>
+
+            </div>
+
+        </div>
+
     </section>
 
     <!-- CHECK IN -->

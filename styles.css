@@ -1531,6 +1531,179 @@ img {
     }
 }
 
+/* =========================================
+   TUTORIAL PAGES
+========================================= */
+
+#tutorial-tv,
+#tutorial-aircon,
+#tutorial-generator,
+#tutorial-shower,
+#tutorial-range-hood {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+#tutorial-tv .content-header,
+#tutorial-aircon .content-header,
+#tutorial-generator .content-header,
+#tutorial-shower .content-header,
+#tutorial-range-hood .content-header {
+    position: relative;
+    width: 100%;
+    min-height: 52px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+
+/* Back button stays on the left */
+#tutorial-tv .content-header .back-btn,
+#tutorial-aircon .content-header .back-btn,
+#tutorial-generator .content-header .back-btn,
+#tutorial-shower .content-header .back-btn,
+#tutorial-range-hood .content-header .back-btn {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+/* Title is truly centered */
+#tutorial-tv .content-header h2,
+#tutorial-aircon .content-header h2,
+#tutorial-generator .content-header h2,
+#tutorial-shower .content-header h2,
+#tutorial-range-hood .content-header h2 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    width: max-content;
+    text-align: center;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+#tutorial-tv .content-body,
+#tutorial-aircon .content-body,
+#tutorial-generator .content-body,
+#tutorial-shower .content-body,
+#tutorial-range-hood .content-body {
+    width: 100%;
+    padding: 25px 20px 45px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+#tutorial-tv .content-card,
+#tutorial-aircon .content-card,
+#tutorial-generator .content-card,
+#tutorial-shower .content-card,
+#tutorial-range-hood .content-card {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   TUTORIAL TITLE
+========================================= */
+
+#tutorial-tv .content-card > h3,
+#tutorial-aircon .content-card > h3,
+#tutorial-generator .content-card > h3,
+#tutorial-shower .content-card > h3,
+#tutorial-range-hood .content-card > h3 {
+    margin: 0 0 24px;
+    text-align: center;
+}
+
+
+/* =========================================
+   VIDEO
+========================================= */
+
+#tutorial-tv .tutorial-video,
+#tutorial-aircon .tutorial-video,
+#tutorial-generator .tutorial-video,
+#tutorial-shower .tutorial-video,
+#tutorial-range-hood .tutorial-video {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    display: block;
+    margin: 0 0 28px;
+    border-radius: 14px;
+    background: #000;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   INSTRUCTIONS
+========================================= */
+
+#tutorial-tv .info-block,
+#tutorial-aircon .info-block,
+#tutorial-generator .info-block,
+#tutorial-shower .info-block,
+#tutorial-range-hood .info-block {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+#tutorial-tv .info-block h4,
+#tutorial-aircon .info-block h4,
+#tutorial-generator .info-block h4,
+#tutorial-shower .info-block h4,
+#tutorial-range-hood .info-block h4 {
+    margin: 0 0 14px;
+}
+
+
+#tutorial-tv .info-block ol,
+#tutorial-aircon .info-block ol,
+#tutorial-generator .info-block ol,
+#tutorial-shower .info-block ol,
+#tutorial-range-hood .info-block ol {
+    margin: 0;
+    padding-left: 22px;
+}
+
+
+#tutorial-tv .info-block li,
+#tutorial-aircon .info-block li,
+#tutorial-generator .info-block li,
+#tutorial-shower .info-block li,
+#tutorial-range-hood .info-block li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
 
 /* =========================================================
    VERY SMALL PHONES
@@ -1615,6 +1788,8 @@ img {
         transition-duration: 0.01ms !important;
     }
 }
+
+
 
 /* =========================================================
    WELCOME COVER — FIX TEXT VISIBILITY
