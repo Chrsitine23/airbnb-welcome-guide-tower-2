@@ -1,63 +1,125 @@
-// Rest N Play Welcome Guide — simple navigation + helpers
+// Rest N Play — Guest Guide
+// Navigation, copy helpers, icons and small accessibility enhancements.
 
-function showPage(pageId) {
-  // Hide all pages
+let currentPage = 'cover';
+
+function showPage(pageId, pushHistory = true) {
+  const target = document.getElementById(pageId);
+  if (!target) return;
+
   document.querySelectorAll('.page').forEach(page => {
     page.classList.remove('active');
+    page.setAttribute('aria-hidden', 'true');
   });
 
-  // Show requested page
-  const target = document.getElementById(pageId);
-  if (target) {
-    target.classList.add('active');
-    // Scroll to top smoothly
-    window.scrollTo({ top: 0, behavior: 'instant' });
+  target.classList.add('active');
+  target.setAttribute('aria-hidden', 'false');
+
+  currentPage = pageId;
+
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'auto'
+  });
+
+  if (pushHistory) {
+    history.pushState({ page: pageId }, '', `#${pageId}`);
   }
 
-  // Re-initialize icons (in case of dynamic content)
-  if (window.lucide) {
-    lucide.createIcons();
+  refreshIcons();
+
+  // Stop any video that may still be playing on another page.
+  document.querySelectorAll('video').forEach(video => {
+    if (!target.contains(video)) {
+      video.pause();
+    }
+  });
+
+  // Move keyboard focus to the page heading when available.
+  const heading = target.querySelector('.content-header h2, .menu-title, .cover-title');
+  if (heading) {
+    heading.setAttribute('tabindex', '-1');
+    requestAnimationFrame(() => heading.focus({ preventScroll: true }));
   }
 }
 
-// Copy text helper (for WiFi)
-function copyText(elementId) {
+function refreshIcons() {
+  if (window.lucide) {
+    lucide.createIcons({
+      attrs: {
+        'stroke-width': 1.7
+      }
+    });
+  }
+}
+
+async function copyText(elementId) {
   const el = document.getElementById(elementId);
   if (!el) return;
 
   const text = el.textContent.trim();
-  
-  navigator.clipboard.writeText(text).then(() => {
-    // Visual feedback
-    const btn = el.parentElement.querySelector('.copy-btn');
-    if (btn) {
-      const original = btn.textContent;
-      btn.textContent = 'Copied!';
-      btn.style.background = '#2d6a4f';
-      setTimeout(() => {
-        btn.textContent = original;
-        btn.style.background = '';
-      }, 1600);
-    }
-  }).catch(() => {
-    // Fallback for older browsers
+  const btn = el.parentElement?.querySelector('.copy-btn');
+
+  try {
+    await navigator.clipboard.writeText(text);
+    showCopyState(btn, 'Copied');
+  } catch (error) {
+    // Fallback for browsers where Clipboard API is unavailable.
     const range = document.createRange();
-    range.selectNode(el);
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
+    range.selectNodeContents(el);
+
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+
     try {
       document.execCommand('copy');
-      alert('Copied: ' + text);
-    } catch (e) {
-      alert('Please copy manually: ' + text);
+      showCopyState(btn, 'Copied');
+    } catch (fallbackError) {
+      showCopyState(btn, 'Copy manually');
     }
-    window.getSelection().removeAllRanges();
-  });
+
+    selection.removeAllRanges();
+  }
 }
 
-// Initialize icons on load
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.lucide) {
-    lucide.createIcons();
+function showCopyState(button, message) {
+  if (!button) return;
+
+  const original = button.dataset.originalText || button.textContent;
+  button.dataset.originalText = original;
+  button.textContent = message;
+  button.classList.add('is-copied');
+
+  window.clearTimeout(button._copyTimer);
+
+  button._copyTimer = window.setTimeout(() => {
+    button.textContent = original;
+    button.classList.remove('is-copied');
+  }, 1600);
+}
+
+function openInitialPage() {
+  const hash = window.location.hash.replace('#', '').trim();
+
+  if (hash && document.getElementById(hash)) {
+    showPage(hash, false);
+  } else {
+    showPage('cover', false);
   }
+}
+
+window.addEventListener('popstate', () => {
+  const hash = window.location.hash.replace('#', '').trim();
+  showPage(hash || 'cover', false);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.page').forEach(page => {
+    page.setAttribute('aria-hidden', page.classList.contains('active') ? 'false' : 'true');
+  });
+
+  openInitialPage();
+  refreshIcons();
 });
