@@ -1804,3 +1804,41 @@ img {
     font-weight: 400 !important;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45) !important;
 }
+
+
+.ps5-tutorial-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.ps5-tutorial-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px 17px;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    background: #fff;
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.ps5-tutorial-btn:hover {
+    background: #f5f5f5;
+    border-color: #ccc;
+}
+
+.ps5-tutorial-btn i {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+}
+
+.ps5-tutorial-btn i:last-child {
+    color: #888;
+}
